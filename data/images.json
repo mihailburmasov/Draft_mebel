@@ -1,0 +1,134 @@
+{
+  "kuhnya-gostinaya-orekh": [
+    {
+      "w": 1280,
+      "h": 960,
+      "lg": "img/w/kuhnya-gostinaya-orekh/01-lg.webp",
+      "sm": "img/w/kuhnya-gostinaya-orekh/01-sm.webp"
+    }
+  ],
+  "kuhnya-bezhevaya-dub": [
+    {
+      "w": 1000,
+      "h": 750,
+      "lg": "img/w/kuhnya-bezhevaya-dub/01-lg.webp",
+      "sm": "img/w/kuhnya-bezhevaya-dub/01-sm.webp"
+    },
+    {
+      "w": 900,
+      "h": 728,
+      "lg": "img/w/kuhnya-bezhevaya-dub/02-lg.webp",
+      "sm": "img/w/kuhnya-bezhevaya-dub/02-sm.webp"
+    },
+    {
+      "w": 750,
+      "h": 1000,
+      "lg": "img/w/kuhnya-bezhevaya-dub/03-lg.webp",
+      "sm": "img/w/kuhnya-bezhevaya-dub/03-sm.webp"
+    },
+    {
+      "w": 750,
+      "h": 1000,
+      "lg": "img/w/kuhnya-bezhevaya-dub/04-lg.webp",
+      "sm": "img/w/kuhnya-bezhevaya-dub/04-sm.webp"
+    },
+    {
+      "w": 750,
+      "h": 1000,
+      "lg": "img/w/kuhnya-bezhevaya-dub/05-lg.webp",
+      "sm": "img/w/kuhnya-bezhevaya-dub/05-sm.webp"
+    }
+  ],
+  "kuhnya-s-ostrovom": [
+    {
+      "w": 1498,
+      "h": 1354,
+      "lg": "img/w/kuhnya-s-ostrovom/01-lg.webp",
+      "sm": "img/w/kuhnya-s-ostrovom/01-sm.webp"
+    }
+  ],
+  "kuhnya-belaya-uglovaya": [
+    {
+      "w": 1181,
+      "h": 1651,
+      "lg": "img/w/kuhnya-belaya-uglovaya/01-lg.webp",
+      "sm": "img/w/kuhnya-belaya-uglovaya/01-sm.webp"
+    }
+  ],
+  "kuhnya-svetlyy-dub": [
+    {
+      "w": 880,
+      "h": 750,
+      "lg": "img/w/kuhnya-svetlyy-dub/01-lg.webp",
+      "sm": "img/w/kuhnya-svetlyy-dub/01-sm.webp"
+    },
+    {
+      "w": 660,
+      "h": 1000,
+      "lg": "img/w/kuhnya-svetlyy-dub/02-lg.webp",
+      "sm": "img/w/kuhnya-svetlyy-dub/02-sm.webp"
+    },
+    {
+      "w": 645,
+      "h": 1000,
+      "lg": "img/w/kuhnya-svetlyy-dub/03-lg.webp",
+      "sm": "img/w/kuhnya-svetlyy-dub/03-sm.webp"
+    }
+  ],
+  "kuhnya-grafit-derevo": [
+    {
+      "w": 1421,
+      "h": 965,
+      "lg": "img/w/kuhnya-grafit-derevo/01-lg.webp",
+      "sm": "img/w/kuhnya-grafit-derevo/01-sm.webp"
+    },
+    {
+      "w": 1195,
+      "h": 1114,
+      "lg": "img/w/kuhnya-grafit-derevo/02-lg.webp",
+      "sm": "img/w/kuhnya-grafit-derevo/02-sm.webp"
+    }
+  ],
+  "shkaf-v-prikhozhuyu": [
+    {
+      "w": 1037,
+      "h": 1824,
+      "lg": "img/w/shkaf-v-prikhozhuyu/01-lg.webp",
+      "sm": "img/w/shkaf-v-prikhozhuyu/01-sm.webp"
+    }
+  ],
+  "shkafy-v-sanuzel": [
+    {
+      "w": 1440,
+      "h": 1920,
+      "lg": "img/w/shkafy-v-sanuzel/01-lg.webp",
+      "sm": "img/w/shkafy-v-sanuzel/01-sm.webp"
+    },
+    {
+      "w": 1440,
+      "h": 1920,
+      "lg": "img/w/shkafy-v-sanuzel/02-lg.webp",
+      "sm": "img/w/shkafy-v-sanuzel/02-sm.webp"
+    }
+  ],
+  "shkafy-na-balkon": [
+    {
+      "w": 591,
+      "h": 667,
+      "lg": "img/w/shkafy-na-balkon/01-lg.webp",
+      "sm": "img/w/shkafy-na-balkon/01-sm.webp"
+    },
+    {
+      "w": 584,
+      "h": 659,
+      "lg": "img/w/shkafy-na-balkon/02-lg.webp",
+      "sm": "img/w/shkafy-na-balkon/02-sm.webp"
+    },
+    {
+      "w": 588,
+      "h": 618,
+      "lg": "img/w/shkafy-na-balkon/03-lg.webp",
+      "sm": "img/w/shkafy-na-balkon/03-sm.webp"
+    }
+  ]
+}
