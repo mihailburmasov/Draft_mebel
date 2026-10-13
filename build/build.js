@@ -8,6 +8,8 @@ const DOCS = path.join(ROOT, 'docs');
 const C = require('../data/company.json');
 const PROJECTS = require('../data/projects.json');
 const IMAGES = require('../data/images.json');
+// Стоковое фото для фона первого экрана (не работа клиента) — генерирует build/images.js
+const STOCK_HERO = { sm: 'img/stock/hero-kitchen-1280.webp', lg: 'img/stock/hero-kitchen-2400.webp' };
 const VERSION = Date.now().toString(36);
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -206,8 +208,8 @@ function footer(R, active) {
 }
 
 // ---------- карточки работ ----------
-function picture(img, alt, R, { sizes = '(max-width: 760px) 100vw, 50vw', eager = false, cls = '' } = {}) {
-  return `<img${cls ? ` class="${cls}"` : ''} src="${R}${img.sm}" srcset="${R}${img.sm} 760w, ${R}${img.lg} ${Math.min(1600, img.w)}w" sizes="${sizes}" width="${img.w}" height="${img.h}" alt="${esc(alt)}"${eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}>`;
+function picture(img, alt, R, { sizes = '(max-width: 760px) 100vw, 50vw', eager = false, lazy = true, cls = '' } = {}) {
+  return `<img${cls ? ` class="${cls}"` : ''} src="${R}${img.sm}" srcset="${R}${img.sm} 760w, ${R}${img.lg} ${Math.min(1600, img.w)}w" sizes="${sizes}" width="${img.w}" height="${img.h}" alt="${esc(alt)}"${eager ? ' fetchpriority="high"' : lazy ? ' loading="lazy" decoding="async"' : ''}>`;
 }
 
 function workCard(p, R) {
@@ -473,7 +475,11 @@ function pageHome() {
 <body class="home">
 ${header(R, 'home')}
 <main id="main">
-<section class="hero">
+<section class="hero hero--bg">
+  <div class="hero__bg" aria-hidden="true">
+    <!-- СТОК: фон первого экрана — не работа клиента (Unsplash, Cat Han, см. stock/README.md). Работы клиента — только в data/projects.json -->
+    <img src="${R}${STOCK_HERO.sm}" srcset="${R}${STOCK_HERO.sm} 1280w, ${R}${STOCK_HERO.lg} 2400w" sizes="100vw" width="2400" height="1600" alt="" fetchpriority="high">
+  </div>
   <div class="wrap hero__in">
     <div class="hero__txt">
       <span class="eyebrow">${I.pin} Своё производство · Ижевск и Удмуртия</span>
@@ -491,10 +497,10 @@ ${header(R, 'home')}
       </div>
       <p class="hero__mess">или напишите: ${tgBtn('chip chip--tg')}${maxBtn('chip chip--max')}</p>
     </div>
-    <div class="hero__media">
-      ${picture(hero, 'Кухня-гостиная на заказ: светлые фасады и колонна пеналов цвета ореха', R, { sizes: '(max-width: 900px) 100vw, 55vw', eager: true })}
-      <div class="hero__badge"><b>Реальные работы</b><span>все фото на сайте — наши объекты, а не картинки из каталога</span></div>
-    </div>
+    <a class="hero__work" href="#raboty">
+      ${picture(hero, 'Кухня-гостиная: светлые фасады и колонна пеналов цвета ореха', R, { sizes: '160px', lazy: false })}
+      <span><b>Это наша работа</b>Кухня-гостиная: орех и светлые фасады<em>Смотреть все работы ${I.arrow}</em></span>
+    </a>
   </div>
 </section>
 

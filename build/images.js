@@ -68,8 +68,20 @@ async function makeOg() {
   await sharp(photo).composite([{ input: svg }]).jpeg({ quality: 82 }).toFile(dest);
 }
 
+// СТОК: фон первого экрана. Это не работа клиента — источник и лицензия в stock/README.md
+async function makeStockHero() {
+  const dir = path.join(OUT, 'stock');
+  fs.mkdirSync(dir, { recursive: true });
+  const src = path.join(ROOT, 'stock', 'unsplash-VgyN_CWXQVM.jpg');
+  for (const w of [1280, 2400]) {
+    const dest = path.join(dir, `hero-kitchen-${w}.webp`);
+    if (!fs.existsSync(dest)) await sharp(src).rotate().resize({ width: w }).webp({ quality: w > 2000 ? 68 : 72, effort: 5 }).toFile(dest);
+  }
+}
+
 async function main() {
   await makeLogo();
+  await makeStockHero();
   await makeOg();
   const manifest = {};
   for (const p of projects) {

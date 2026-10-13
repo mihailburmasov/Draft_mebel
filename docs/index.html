@@ -20,7 +20,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preload" href="fonts/manrope-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/style.css?v=mv6hpifq">
+<link rel="stylesheet" href="css/style.css?v=mv6izcbf">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FurnitureStore","name":"Draft Mebel","alternateName":"Драфт Мебель","description":"Кухни и шкафы на заказ в Ижевске и Удмуртии: бесплатный замер и дизайн-проект, своё производство.","url":"https://mihailburmasov.github.io/Draft_mebel/","image":"https://mihailburmasov.github.io/Draft_mebel/img/og.jpg","logo":"https://mihailburmasov.github.io/Draft_mebel/img/logo.png","telephone":"+79511986688","address":{"@type":"PostalAddress","streetAddress":"улица Орджоникидзе, 4","addressLocality":"Ижевск","addressRegion":"Удмуртская Республика","postalCode":"426063","addressCountry":"RU"},"geo":{"@type":"GeoCoordinates","latitude":56.832563,"longitude":53.251574},"areaServed":[{"@type":"City","name":"Ижевск"},{"@type":"AdministrativeArea","name":"Удмуртская Республика"}],"sameAs":["https://vk.ru/draft.mebel.club"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Сколько стоит кухня или шкаф на заказ?","acceptedAnswer":{"@type":"Answer","text":"Цена зависит от размеров, материала фасадов, столешницы и фурнитуры, поэтому одной цифры «за метр» мы не называем — она почти всегда меняется после замера. Ответьте на 5 вопросов в расчёте или пришлите фото и размеры в Telegram или MAX — сориентируем по стоимости. Точную цену называем после бесплатного замера."}},{"@type":"Question","name":"Замер и дизайн-проект правда бесплатные?","acceptedAnswer":{"@type":"Answer","text":"Да. Выезд замерщика и дизайн-проект ничего не стоят и ни к чему вас не обязывают."}},{"@type":"Question","name":"У меня уже есть расчёт в другой компании. Посчитаете?","acceptedAnswer":{"@type":"Answer","text":"Да, присылайте проект или смету в мессенджер. Посчитаем свой вариант с теми же материалами и постараемся предложить выгоднее."}},{"@type":"Question","name":"Вы работаете только по Ижевску?","acceptedAnswer":{"@type":"Answer","text":"Нет, по Ижевску и всей Удмуртии. Замер и монтаж за городом согласуем заранее, доставку рассчитываем индивидуально под каждый заказ."}},{"@type":"Question","name":"Можно сделать мебель под мою технику?","acceptedAnswer":{"@type":"Answer","text":"Да. Проектируем ниши и колонны под встроенный холодильник, духовой шкаф, СВЧ, посудомоечную машину и вытяжку — под конкретные модели."}},{"@type":"Question","name":"Сколько времени занимает изготовление?","acceptedAnswer":{"@type":"Answer","text":"Срок зависит от сложности проекта и выбранных материалов. Мы называем его до заключения договора и фиксируем в договоре."}},{"@type":"Question","name":"Делаете ли вы мебель не для кухни?","acceptedAnswer":{"@type":"Answer","text":"Да: шкафы в прихожую и спальню, встроенные шкафы до потолка, мебель в санузел, шкафы и тумбы на балкон и лоджию."}}]}</script>
 </head>
@@ -48,7 +48,11 @@
   </div>
 </header>
 <main id="main">
-<section class="hero">
+<section class="hero hero--bg">
+  <div class="hero__bg" aria-hidden="true">
+    <!-- СТОК: фон первого экрана — не работа клиента (Unsplash, Cat Han, см. stock/README.md). Работы клиента — только в data/projects.json -->
+    <img src="img/stock/hero-kitchen-1280.webp" srcset="img/stock/hero-kitchen-1280.webp 1280w, img/stock/hero-kitchen-2400.webp 2400w" sizes="100vw" width="2400" height="1600" alt="" fetchpriority="high">
+  </div>
   <div class="wrap hero__in">
     <div class="hero__txt">
       <span class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg> Своё производство · Ижевск и Удмуртия</span>
@@ -66,10 +70,10 @@
       </div>
       <p class="hero__mess">или напишите: <a class="chip chip--tg" href="https://t.me/+79511986688" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.4 4.2 2.9 11.3c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.8.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.4-1.6zM9.6 14.7l-.4 4-1.5-4.9 10.4-6.6-8.5 7.5z" fill="currentColor"/></svg><span>Telegram</span></a><button type="button" class="chip chip--max js-max" data-phone="+7 951 198-66-88"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5c-5.3 0-9.5 3.9-9.5 9 0 2.6 1.1 4.9 2.9 6.6L4.6 21.5l4.1-1.6c1 .3 2.1.5 3.3.5 5.3 0 9.5-3.9 9.5-9s-4.2-8.9-9.5-8.9zm4.2 12.3h-1.7v-4.3l-1.9 3h-1.2l-1.9-3v4.3H7.8V8.2h1.6l2.6 4 2.6-4h1.6v6.6z" fill="currentColor"/></svg><span>MAX</span></button></p>
     </div>
-    <div class="hero__media">
-      <img src="img/w/kuhnya-gostinaya-orekh/01-sm.webp" srcset="img/w/kuhnya-gostinaya-orekh/01-sm.webp 760w, img/w/kuhnya-gostinaya-orekh/01-lg.webp 1280w" sizes="(max-width: 900px) 100vw, 55vw" width="1280" height="960" alt="Кухня-гостиная на заказ: светлые фасады и колонна пеналов цвета ореха" fetchpriority="high">
-      <div class="hero__badge"><b>Реальные работы</b><span>все фото на сайте — наши объекты, а не картинки из каталога</span></div>
-    </div>
+    <a class="hero__work" href="#raboty">
+      <img src="img/w/kuhnya-gostinaya-orekh/01-sm.webp" srcset="img/w/kuhnya-gostinaya-orekh/01-sm.webp 760w, img/w/kuhnya-gostinaya-orekh/01-lg.webp 1280w" sizes="160px" width="1280" height="960" alt="Кухня-гостиная: светлые фасады и колонна пеналов цвета ореха">
+      <span><b>Это наша работа</b>Кухня-гостиная: орех и светлые фасады<em>Смотреть все работы <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></em></span>
+    </a>
   </div>
 </section>
 
@@ -435,6 +439,6 @@
   <button class="lb__nav lb__next" type="button" aria-label="Следующее фото">›</button>
 </div>
 <script>window.SITE={"endpoint":"","phone":"+7 951 198-66-88","tel":"+79511986688","telegram":"https://t.me/+79511986688","max":""};</script>
-<script src="js/main.js?v=mv6hpifq" defer></script>
+<script src="js/main.js?v=mv6izcbf" defer></script>
 </body>
 </html>
