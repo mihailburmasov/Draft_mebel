@@ -45,7 +45,7 @@ function maxBtn(cls, label = 'MAX') {
   return `<button type="button" class="${cls} js-max"${label ? '' : ' aria-label="MAX"'} data-phone="${esc(C.phoneDisplay)}">${maxIcon()}<span>${label}</span></button>`;
 }
 const tgBtn = (cls, label = 'Telegram') => `<a class="${cls}"${label ? '' : ' aria-label="Telegram"'} href="${esc(C.telegram)}" target="_blank" rel="noopener">${I.tg}<span>${label}</span></a>`;
-const messengers = (cls = 'btn btn--ghost') => `${tgBtn(cls + ' btn--tg')}${maxBtn(cls + ' btn--max')}`;
+const messengers = (cls = 'btn btn--ghost') => `${maxBtn(cls + ' btn--max')}${tgBtn(cls + ' btn--tg')}`;
 
 // ---------- данные-тексты ----------
 const ADVANTAGES = [
@@ -58,7 +58,7 @@ const ADVANTAGES = [
 ];
 
 const STEPS = [
-  ['Заявка', 'Звоните, пишите в Telegram или MAX или ответьте на 5 вопросов в расчёте на сайте.'],
+  ['Заявка', 'Звоните, пишите в MAX или Telegram или ответьте на 5 вопросов в расчёте на сайте.'],
   ['Замер — бесплатно', 'Приезжаем в удобный день, снимаем точные размеры, обсуждаем материалы и наполнение.'],
   ['Дизайн-проект — бесплатно', 'Готовим проект и расчёт, вносим правки до утверждения.'],
   ['Договор', 'Фиксируем проект, материалы, стоимость и срок изготовления в договоре.'],
@@ -74,7 +74,7 @@ const PRICE_FACTORS = [
 ];
 
 const FAQ = [
-  ['Сколько стоит кухня или шкаф на заказ?', 'Цена зависит от размеров, материала фасадов, столешницы и фурнитуры, поэтому одной цифры «за метр» мы не называем — она почти всегда меняется после замера. Ответьте на 5 вопросов в расчёте или пришлите фото и размеры в Telegram или MAX — сориентируем по стоимости. Точную цену называем после бесплатного замера.'],
+  ['Сколько стоит кухня или шкаф на заказ?', 'Цена зависит от размеров, материала фасадов, столешницы и фурнитуры, поэтому одной цифры «за метр» мы не называем — она почти всегда меняется после замера. Ответьте на 5 вопросов в расчёте или пришлите фото и размеры в MAX или Telegram — сориентируем по стоимости. Точную цену называем после бесплатного замера.'],
   ['Замер и дизайн-проект правда бесплатные?', 'Да. Выезд замерщика и дизайн-проект ничего не стоят и ни к чему вас не обязывают.'],
   ['У меня уже есть расчёт в другой компании. Посчитаете?', 'Да, присылайте проект или смету в мессенджер. Посчитаем свой вариант с теми же материалами и постараемся предложить выгоднее.'],
   ['Вы работаете только по Ижевску?', 'Нет, по Ижевску и всей Удмуртии. Замер и монтаж за городом согласуем заранее, доставку рассчитываем индивидуально под каждый заказ.'],
@@ -144,7 +144,7 @@ function header(R, active) {
       </div>
     </nav>
     <div class="hdr__cta">
-      <div class="hdr__mess">${tgBtn('icon-btn icon-btn--tg', '')}${maxBtn('icon-btn icon-btn--max', '')}</div>
+      <div class="hdr__mess">${maxBtn('icon-btn icon-btn--max', '')}${tgBtn('icon-btn icon-btn--tg', '')}</div>
       <a class="hdr__phone" href="${tel}"><b>${C.phoneDisplay}</b><small>${C.hours.toLowerCase()}</small></a>
       <a class="btn btn--primary btn--sm hdr__calc" href="${href('#raschet')}">Рассчитать</a>
       <button class="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="nav"><span></span></button>
@@ -171,7 +171,7 @@ function footer(R, active) {
       <h3>Контакты</h3>
       <ul>
         <li><a href="${tel}">${C.phoneDisplay}</a></li>
-        <li><a href="${esc(C.telegram)}" target="_blank" rel="noopener">Telegram</a> · ${C.max ? `<a href="${esc(C.max)}" target="_blank" rel="noopener">MAX</a>` : `<button type="button" class="linklike js-max" data-phone="${esc(C.phoneDisplay)}">MAX</button>`}</li>
+        <li>${C.max ? `<a href="${esc(C.max)}" target="_blank" rel="noopener">MAX</a>` : `<button type="button" class="linklike js-max" data-phone="${esc(C.phoneDisplay)}">MAX</button>`} · <a href="${esc(C.telegram)}" target="_blank" rel="noopener">Telegram</a></li>
         <li>${esc(C.address)}</li>
         <li>${esc(C.hours)}</li>
         ${C.vk ? `<li><a href="${esc(C.vk)}" target="_blank" rel="noopener">Группа ВКонтакте</a></li>` : ''}
@@ -189,8 +189,8 @@ function footer(R, active) {
 </footer>
 <div class="mbar" aria-label="Быстрая связь">
   <a href="${tel}">${I.phone}<span>Позвонить</span></a>
-  ${tgBtn('', 'Telegram')}
   ${maxBtn('', 'MAX')}
+  ${tgBtn('mbar__tg', 'Telegram')}
   <a href="${home}#raschet" class="mbar__calc">${I.calc}<span>Расчёт</span></a>
 </div>
 <div class="cookie" id="cookie" hidden>
@@ -308,7 +308,7 @@ function quiz(R, preset = '') {
           ${opt('project', 'Есть свой эскиз или фото-пример', 'Есть эскиз или фото')}
           ${opt('project', 'Нет, нужен проект с нуля', 'Нет, нужен проект')}
         </div>
-        <p class="quiz__hint">Расчёт или эскиз можно будет прислать в Telegram или MAX после заявки.</p>
+        <p class="quiz__hint">Расчёт или эскиз можно будет прислать в MAX или Telegram после заявки.</p>
       </fieldset>
 
       <fieldset class="quiz__step" data-step="6">
@@ -320,8 +320,8 @@ function quiz(R, preset = '') {
         <p class="field__label">Как удобнее связаться?</p>
         <div class="opts opts--3 opts--sm">
           ${opt('contact', 'Звонок', 'Звонок', true)}
-          ${opt('contact', 'Telegram', 'Telegram')}
           ${opt('contact', 'MAX', 'MAX')}
+          ${opt('contact', 'Telegram', 'Telegram')}
         </div>
         <label class="hp" aria-hidden="true">Не заполняйте это поле<input type="text" name="company_site" tabindex="-1" autocomplete="off"></label>
         <label class="chk chk--consent"><input type="checkbox" name="consent" value="да" required><span>Даю <a href="${R}soglasie-na-obrabotku/" target="_blank">согласие на обработку персональных данных</a> и принимаю <a href="${R}politika-konfidentsialnosti/" target="_blank">политику конфиденциальности</a></span></label>
@@ -498,7 +498,7 @@ ${header(R, 'home')}
         <a class="btn btn--primary btn--lg" href="#raschet">${I.calc}<span>Рассчитать стоимость</span></a>
         <a class="btn btn--ghost btn--lg" href="${tel}">${I.phone}<span>${C.phoneDisplay}</span></a>
       </div>
-      <p class="hero__mess">или напишите: ${tgBtn('chip chip--tg')}${maxBtn('chip chip--max')}</p>
+      <p class="hero__mess">или напишите: ${maxBtn('chip chip--max')}${tgBtn('chip chip--tg')}</p>
     </div>
     <a class="hero__work" href="#raboty">
       ${picture(hero, 'Кухня-гостиная: светлые фасады и колонна пеналов цвета ореха', R, { sizes: '160px', lazy: false })}

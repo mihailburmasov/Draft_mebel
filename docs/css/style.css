@@ -382,7 +382,7 @@ button { font: inherit; cursor: pointer; }
   body { padding-bottom: 66px; }
   .mbar { display: grid; grid-template-columns: repeat(4, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: var(--surface); border-top: 1px solid var(--line); box-shadow: 0 -8px 24px -16px rgba(2, 35, 56, .35); padding-bottom: env(safe-area-inset-bottom); }
   .mbar a, .mbar button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; height: 62px; font-size: 12px; font-weight: 700; color: var(--navy); text-decoration: none; background: none; border: 0; }
-  .mbar a:nth-child(2) svg { color: var(--tg); }
+  .mbar__tg svg { color: var(--tg); }
   .mbar__calc { background: var(--navy) !important; color: #fff !important; }
 }
 
