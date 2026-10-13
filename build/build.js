@@ -8,7 +8,7 @@ const DOCS = path.join(ROOT, 'docs');
 const C = require('../data/company.json');
 const PROJECTS = require('../data/projects.json');
 const IMAGES = require('../data/images.json');
-// Стоковое фото для фона первого экрана (не работа клиента) — генерирует build/images.js
+// Стоковый фон первого экрана (не работа клиента) — для предзагрузки; размеры совпадают с медиа-запросами .parallax--hero в style.css
 const STOCK_HERO = { sm: 'img/stock/hero-kitchen-1280.webp', lg: 'img/stock/hero-kitchen-2400.webp' };
 const VERSION = Date.now().toString(36);
 
@@ -89,7 +89,7 @@ const WARDROBE_TYPES = ['В прихожую и спальню', 'Встроен
 const TOWNS = ['Ижевск', 'Завьялово', 'Воткинск', 'Сарапул', 'Можга', 'Глазов', 'Ува', 'Малая Пурга', 'Игра', 'Якшур-Бодья'];
 
 // ---------- общие блоки ----------
-function head({ title, description, canonical, R, ld = [] }) {
+function head({ title, description, canonical, R, ld = [], preloadHero = false }) {
   PAGE_R = R;
   return `<!doctype html>
 <html lang="ru">
@@ -113,7 +113,9 @@ function head({ title, description, canonical, R, ld = [] }) {
 <link rel="icon" href="${R}favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="${R}img/apple-touch-icon.png">
 <link rel="preload" href="${R}fonts/manrope-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="${R}css/style.css?v=${VERSION}">
+<link rel="stylesheet" href="${R}css/style.css?v=${VERSION}">${preloadHero ? `
+<link rel="preload" as="image" type="image/webp" href="${R}${STOCK_HERO.sm}" media="(max-width: 1280px)" fetchpriority="high">
+<link rel="preload" as="image" type="image/webp" href="${R}${STOCK_HERO.lg}" media="(min-width: 1281px)" fetchpriority="high">` : ''}
 ${ld.map((o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join('\n')}
 </head>`;
 }
@@ -367,7 +369,7 @@ function secCompare() {
 }
 
 function secAdvantages() {
-  return `<section class="sec" id="pochemu">
+  return `<section class="sec parallax parallax--why" id="pochemu">
   <div class="wrap">
     <div class="sec__head"><span class="eyebrow">Почему Draft Mebel</span><h2>Мебель от производителя — с заботой о деталях</h2></div>
     <div class="adv">
@@ -378,7 +380,7 @@ function secAdvantages() {
 }
 
 function secSteps(R) {
-  return `<section class="sec sec--alt" id="etapy">
+  return `<section class="sec parallax parallax--steps" id="etapy">
   <div class="wrap">
     <div class="sec__head"><span class="eyebrow">Как работаем</span><h2>От заявки до готовой мебели — 6&nbsp;шагов</h2></div>
     <ol class="steps">
@@ -473,16 +475,13 @@ function pageHome() {
   return `${head({
     title: 'Кухни и шкафы на заказ в Ижевске — Draft Mebel, своё производство',
     description: 'Кухни и шкафы на заказ в Ижевске и Удмуртии от производителя. Бесплатный замер и дизайн-проект, точно по вашим размерам. Пришлите чужой расчёт — предложим выгоднее. ☎ ' + C.phoneDisplay,
-    canonical: '', R, ld: [ldBusiness(), ldFaq(FAQ)],
+    canonical: '', R, ld: [ldBusiness(), ldFaq(FAQ)], preloadHero: true,
   })}
 <body class="home">
 ${header(R, 'home')}
 <main id="main">
-<section class="hero hero--bg">
-  <div class="hero__bg" aria-hidden="true">
-    <!-- СТОК: фон первого экрана — не работа клиента (Unsplash, Cat Han, см. stock/README.md). Работы клиента — только в data/projects.json -->
-    <img src="${R}${STOCK_HERO.sm}" srcset="${R}${STOCK_HERO.sm} 1280w, ${R}${STOCK_HERO.lg} 2400w" sizes="100vw" width="2400" height="1600" alt="" fetchpriority="high">
-  </div>
+<!-- СТОК: фоны первого экрана, «Почему Draft Mebel» и «Как работаем» — не работы клиента (Unsplash, см. stock/README.md); заданы в css/style.css, класс .parallax. Работы клиента — только в data/projects.json -->
+<section class="hero hero--bg parallax parallax--hero">
   <div class="wrap hero__in">
     <div class="hero__txt">
       <span class="eyebrow">${I.pin} Своё производство · Ижевск и Удмуртия</span>

@@ -20,7 +20,9 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preload" href="fonts/manrope-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/style.css?v=mv6jte1q">
+<link rel="stylesheet" href="css/style.css?v=mv6krpz3">
+<link rel="preload" as="image" type="image/webp" href="img/stock/hero-kitchen-1280.webp" media="(max-width: 1280px)" fetchpriority="high">
+<link rel="preload" as="image" type="image/webp" href="img/stock/hero-kitchen-2400.webp" media="(min-width: 1281px)" fetchpriority="high">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FurnitureStore","name":"Draft Mebel","alternateName":"Драфт Мебель","description":"Кухни и шкафы на заказ в Ижевске и Удмуртии: бесплатный замер и дизайн-проект, своё производство.","url":"https://mihailburmasov.github.io/Draft_mebel/","image":"https://mihailburmasov.github.io/Draft_mebel/img/og.jpg","logo":"https://mihailburmasov.github.io/Draft_mebel/img/logo.png","telephone":"+79511986688","address":{"@type":"PostalAddress","streetAddress":"улица Орджоникидзе, 4","addressLocality":"Ижевск","addressRegion":"Удмуртская Республика","postalCode":"426063","addressCountry":"RU"},"geo":{"@type":"GeoCoordinates","latitude":56.832563,"longitude":53.251574},"areaServed":[{"@type":"City","name":"Ижевск"},{"@type":"AdministrativeArea","name":"Удмуртская Республика"}],"sameAs":["https://vk.ru/draft.mebel.club"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Сколько стоит кухня или шкаф на заказ?","acceptedAnswer":{"@type":"Answer","text":"Цена зависит от размеров, материала фасадов, столешницы и фурнитуры, поэтому одной цифры «за метр» мы не называем — она почти всегда меняется после замера. Ответьте на 5 вопросов в расчёте или пришлите фото и размеры в MAX или Telegram — сориентируем по стоимости. Точную цену называем после бесплатного замера."}},{"@type":"Question","name":"Замер и дизайн-проект правда бесплатные?","acceptedAnswer":{"@type":"Answer","text":"Да. Выезд замерщика и дизайн-проект ничего не стоят и ни к чему вас не обязывают."}},{"@type":"Question","name":"У меня уже есть расчёт в другой компании. Посчитаете?","acceptedAnswer":{"@type":"Answer","text":"Да, присылайте проект или смету в мессенджер. Посчитаем свой вариант с теми же материалами и постараемся предложить выгоднее."}},{"@type":"Question","name":"Вы работаете только по Ижевску?","acceptedAnswer":{"@type":"Answer","text":"Нет, по Ижевску и всей Удмуртии. Замер и монтаж за городом согласуем заранее, доставку рассчитываем индивидуально под каждый заказ."}},{"@type":"Question","name":"Можно сделать мебель под мою технику?","acceptedAnswer":{"@type":"Answer","text":"Да. Проектируем ниши и колонны под встроенный холодильник, духовой шкаф, СВЧ, посудомоечную машину и вытяжку — под конкретные модели."}},{"@type":"Question","name":"Сколько времени занимает изготовление?","acceptedAnswer":{"@type":"Answer","text":"Срок зависит от сложности проекта и выбранных материалов. Мы называем его до заключения договора и фиксируем в договоре."}},{"@type":"Question","name":"Делаете ли вы мебель не для кухни?","acceptedAnswer":{"@type":"Answer","text":"Да: шкафы в прихожую и спальню, встроенные шкафы до потолка, мебель в санузел, шкафы и тумбы на балкон и лоджию."}}]}</script>
 </head>
@@ -48,11 +50,8 @@
   </div>
 </header>
 <main id="main">
-<section class="hero hero--bg">
-  <div class="hero__bg" aria-hidden="true">
-    <!-- СТОК: фон первого экрана — не работа клиента (Unsplash, Cat Han, см. stock/README.md). Работы клиента — только в data/projects.json -->
-    <img src="img/stock/hero-kitchen-1280.webp" srcset="img/stock/hero-kitchen-1280.webp 1280w, img/stock/hero-kitchen-2400.webp 2400w" sizes="100vw" width="2400" height="1600" alt="" fetchpriority="high">
-  </div>
+<!-- СТОК: фоны первого экрана, «Почему Draft Mebel» и «Как работаем» — не работы клиента (Unsplash, см. stock/README.md); заданы в css/style.css, класс .parallax. Работы клиента — только в data/projects.json -->
+<section class="hero hero--bg parallax parallax--hero">
   <div class="wrap hero__in">
     <div class="hero__txt">
       <span class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg> Своё производство · Ижевск и Удмуртия</span>
@@ -217,7 +216,7 @@
   </div>
 </section>
 
-<section class="sec" id="pochemu">
+<section class="sec parallax parallax--why" id="pochemu">
   <div class="wrap">
     <div class="sec__head"><span class="eyebrow">Почему Draft Mebel</span><h2>Мебель от производителя — с заботой о деталях</h2></div>
     <div class="adv">
@@ -340,7 +339,7 @@
     </form>
   </div>
 </section>
-<section class="sec sec--alt" id="etapy">
+<section class="sec parallax parallax--steps" id="etapy">
   <div class="wrap">
     <div class="sec__head"><span class="eyebrow">Как работаем</span><h2>От заявки до готовой мебели — 6&nbsp;шагов</h2></div>
     <ol class="steps">
@@ -439,6 +438,6 @@
   <button class="lb__nav lb__next" type="button" aria-label="Следующее фото">›</button>
 </div>
 <script>window.SITE={"endpoint":"","phone":"+7 951 198-66-88","tel":"+79511986688","telegram":"https://t.me/+79511986688","max":""};</script>
-<script src="js/main.js?v=mv6jte1q" defer></script>
+<script src="js/main.js?v=mv6krpz3" defer></script>
 </body>
 </html>

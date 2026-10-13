@@ -68,14 +68,21 @@ async function makeOg() {
   await sharp(photo).composite([{ input: svg }]).jpeg({ quality: 82 }).toFile(dest);
 }
 
-// СТОК: фон первого экрана. Это не работа клиента — источник и лицензия в stock/README.md
+// СТОК: фоны параллакс-блоков. Это не работы клиента — источники и лицензии в stock/README.md
+const STOCK = {
+  'hero-kitchen': 'unsplash-VgyN_CWXQVM.jpg', // первый экран
+  'why-kitchen': 'unsplash-AgHJm3uKr4U.jpg', // «Почему Draft Mebel»
+  'steps-wardrobe': 'unsplash-SseNV6Ycb1c.jpg', // «Как работаем»
+};
 async function makeStockHero() {
   const dir = path.join(OUT, 'stock');
   fs.mkdirSync(dir, { recursive: true });
-  const src = path.join(ROOT, 'stock', 'unsplash-VgyN_CWXQVM.jpg');
-  for (const w of [1280, 2400]) {
-    const dest = path.join(dir, `hero-kitchen-${w}.webp`);
-    if (!fs.existsSync(dest)) await sharp(src).rotate().resize({ width: w }).webp({ quality: w > 2000 ? 68 : 72, effort: 5 }).toFile(dest);
+  for (const [name, file] of Object.entries(STOCK)) {
+    const src = path.join(ROOT, 'stock', file);
+    for (const w of [1280, 2400]) {
+      const dest = path.join(dir, `${name}-${w}.webp`);
+      if (!fs.existsSync(dest)) await sharp(src).rotate().resize({ width: w }).webp({ quality: w > 2000 ? 68 : 72, effort: 5 }).toFile(dest);
+    }
   }
 }
 
