@@ -19,7 +19,6 @@ const abs = (p) => C.siteUrl.replace(/\/$/, '') + '/' + p;
 const I = {
   phone: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z" fill="currentColor"/></svg>',
   tg: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.4 4.2 2.9 11.3c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.8.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.4-1.6zM9.6 14.7l-.4 4-1.5-4.9 10.4-6.6-8.5 7.5z" fill="currentColor"/></svg>',
-  max: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5c-5.3 0-9.5 3.9-9.5 9 0 2.6 1.1 4.9 2.9 6.6L4.6 21.5l4.1-1.6c1 .3 2.1.5 3.3.5 5.3 0 9.5-3.9 9.5-9s-4.2-8.9-9.5-8.9zm4.2 12.3h-1.7v-4.3l-1.9 3h-1.2l-1.9-3v4.3H7.8V8.2h1.6l2.6 4 2.6-4h1.6v6.6z" fill="currentColor"/></svg>',
   vk: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.9 17.5C6.7 17.5 3.1 13.3 3 6.3h3.1c.1 5.1 2.4 7.3 4.2 7.7V6.3h2.9v4.4c1.8-.2 3.7-2.2 4.3-4.4h2.9c-.5 2.7-2.5 4.7-3.9 5.5 1.4.7 3.7 2.4 4.6 5.7h-3.2c-.7-2.2-2.4-3.9-4.7-4.1v4.1h-.3z" fill="currentColor"/></svg>',
   check: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
   arrow: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
@@ -37,10 +36,13 @@ const I = {
 
 // ---------- кнопки связи ----------
 const tel = `tel:${C.phone}`;
+// Оригинальный значок MAX (взят с max.ru/favicon.svg); путь к картинке зависит от глубины страницы — его задаёт head()
+let PAGE_R = '';
+const maxIcon = () => `<img class="max-ico" src="${PAGE_R}img/max.svg" width="20" height="20" alt="">`;
 function maxBtn(cls, label = 'MAX') {
-  if (C.max) return `<a class="${cls}"${label ? '' : ' aria-label="MAX"'} href="${esc(C.max)}" target="_blank" rel="noopener">${I.max}<span>${label}</span></a>`;
+  if (C.max) return `<a class="${cls}"${label ? '' : ' aria-label="MAX"'} href="${esc(C.max)}" target="_blank" rel="noopener">${maxIcon()}<span>${label}</span></a>`;
   // Ссылки на профиль MAX пока нет: кнопка копирует номер и подсказывает найти нас по нему
-  return `<button type="button" class="${cls} js-max"${label ? '' : ' aria-label="MAX"'} data-phone="${esc(C.phoneDisplay)}">${I.max}<span>${label}</span></button>`;
+  return `<button type="button" class="${cls} js-max"${label ? '' : ' aria-label="MAX"'} data-phone="${esc(C.phoneDisplay)}">${maxIcon()}<span>${label}</span></button>`;
 }
 const tgBtn = (cls, label = 'Telegram') => `<a class="${cls}"${label ? '' : ' aria-label="Telegram"'} href="${esc(C.telegram)}" target="_blank" rel="noopener">${I.tg}<span>${label}</span></a>`;
 const messengers = (cls = 'btn btn--ghost') => `${tgBtn(cls + ' btn--tg')}${maxBtn(cls + ' btn--max')}`;
@@ -88,6 +90,7 @@ const TOWNS = ['Ижевск', 'Завьялово', 'Воткинск', 'Сар
 
 // ---------- общие блоки ----------
 function head({ title, description, canonical, R, ld = [] }) {
+  PAGE_R = R;
   return `<!doctype html>
 <html lang="ru">
 <head>
